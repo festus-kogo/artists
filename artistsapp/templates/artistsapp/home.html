@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} My music {% endblock %}
+{% block content %}
+<div class="home">
+    <div>
+        <h2>Songs</h2>
+        <table class="line-table">
+            <thead>
+                <tr>
+                    <td>No.</td>
+                    <td>Song</td>
+                    <td>Album</td>
+                    <td>Artist</td>
+                    <td>Genre</td>
+                </tr> 
+            </thead>
+            <!-- end of tr -->
+            <tbody>
+                {% for song in songs|dictsort:"name" %}
+                <tr>
+                    <td>{{ forloop.counter }}.</td>
+                    <td><a href="{% url 'song_search' song %}">{{ song }}</a></td>
+                    <td>{{ song.album }}</td>
+                    <td><a href="{% url 'artist_search' song.artist %}">{{ song.artist }}</a></td>
+                    <td>{{ song.genre }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}

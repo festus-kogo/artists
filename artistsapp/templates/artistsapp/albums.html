@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} My favourite albums {% endblock %}
+{% block content %}
+<div>
+    <h2>Albums</h2>
+    <a href="{% url 'add_album' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;">➕</a>
+    <table class="line-table" aria-describedby="Albums table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Album</th>
+                <th>Release</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in object_list|dictsort:"name" %}
+            <tr>
+                <td>{{ forloop.counter }}.</td>
+                <td><a href="{% url 'update_album' album.id %}">{{ album }}</a></td>
+                <td>{{ album.release_date|date:"Y" }} ({{ album.age }} years ago)</td>
+                <td><a href="{% url 'delete_album' album.id %}" style="text-decoration: none; color: inherit;">❌</a</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_album' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;">➕</a>
+</div>
+{% endblock %}

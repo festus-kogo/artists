@@ -7,7 +7,7 @@ from .forms import AlbumForm, ArtistForm, SongForm
 import webbrowser
 from googleapiclient.discovery import build
 
-API_KEY ='AIzaSyATJv1Cua9K5ZJHUvxz86caG0y5RwYNW68'
+API_KEY =''
 VIDEO_ID = ""
 
 ############################################################################
@@ -118,7 +118,6 @@ class DeleteSongsView(DeleteView):
     success_url = "/songs/"
 
 def get_youtube_url(song_name):
-    # api_key='AIzaSyATJv1Cua9K5ZJHUvxz86caG0y5RwYNW68'
     # Replace 'YOUR_API_KEY' with your actual API key
     youtube = build('youtube', 'v3', developerKey=API_KEY)
 

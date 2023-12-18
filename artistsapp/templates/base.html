@@ -31,22 +31,53 @@
     {% bootstrap_javascript %}
   </head>
   <body>
-    <div class="app">
+    <nav class="navbar navbar-expand-sm bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'artistsapp/music.png' %}" alt="Logo" style="width: 100px;">
+        </a>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'songs' %}">Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'artists' %}">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'albums' %}">Albums</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container app">
       <header>
-        <div class="header-first-row">
-        <h1 class="title">my music</h1>
+        <!-- <div class="header-first-row">
           <img
             src="{% static 'artistsapp/music.png' %}"
             alt="Music Application Logo"
             width="150px"
           />
-        </div>
-        <nav class="navbar">
-          <a class="nav-item" href="{% url 'home' %}">Home</a>
-          <a class="nav-item" href="{% url 'songs' %}">Songs</a>
-          <a class="nav-item" href="{% url 'artists' %}">Artists</a>
-          <a class="nav-item" href="{% url 'albums' %}">Albums</a>
-        </nav>
+        </div> -->
+
+        <!-- <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'songs' %}">Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'artists' %}">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'albums' %}">Albums</a>
+          </li>
+        </ul> -->
+
       </header>
       <main>
         {% block content %}
@@ -55,12 +86,28 @@
     </div>
     {% block footer %}
     <footer>
-      <nav class="navbar">
-        <a class="nav-item" href="{% url 'home' %}">Home</a>
-        <a class="nav-item" href="{% url 'songs' %}">Songs</a>
-        <a class="nav-item" href="{% url 'artists' %}">Artists</a>
-        <a class="nav-item" href="{% url 'albums' %}">Albums</a>
-      </nav>
+      <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        </script>
+        
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Go to home page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View songs" href="{% url 'songs' %}">Songs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Artists" href="{% url 'artists' %}">Artists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="View Albums" href="{% url 'albums' %}">Albums</a>
+        </li>
+      </ul>
     </footer>
     {% endblock %}
   </body>

@@ -2,10 +2,8 @@
 {% load static %}
 {% block title %} My music {% endblock %}
 {% block content %}
-<div class="home">
-    <div>
-        <h2>Songs</h2>
-        <table class="table table-striped table-hover">
+<div class="container pt-5">
+        <table class="table table-striped table-hover" aria-describedby="Home">
             <thead>
                 <tr>
                 <th>Id.</th>
@@ -28,6 +26,5 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
     </div>
 {% endblock %}

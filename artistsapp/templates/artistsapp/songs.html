@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %} My favourite songs {% endblock %}
 {% block content %}
-<div>
+<div class="container pt-5">
     <h2>Songs</h2>
-    <a href="{% url 'add_song' %}" style="display: inherit; text-decoration: none; text-align: center; border-radius: 15px; padding: 4px; color: inherit; background-color: lightgreen;">➕</a>
+    <a href="{% url 'add_song' %}" style="display: inherit; text-decoration: none; text-align: center; border-radius: 15px; padding: 4px; color: inherit; background-color: lightgreen;" data-bs-toggle="tooltip" data-bs-placement="top" title="Add new song">➕</a>
     <table class="table table-striped table-hover" aria-describedby="Songs tables">
         <thead>
             <tr>
@@ -24,11 +24,11 @@
                 <td>{{ song.album }}</td>
                 <td>{{ song.album.release_date|date:"Y" }} </td>
                 <td>{{ song.genre }}</td>
-                <td><a href="{% url 'delete_song' song.id %}">❌</a></td>
+                <td><a data-bs-toggle="tooltip" data-bs-placement="right" title="Delete song" style="text-decoration: none; color: inherit;" href="{% url 'delete_song' song.id %}">❌</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'add_song' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;">➕</a>
+    <a href="{% url 'add_song' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;" data-bs-toggle="tooltip" data-bs-placement="top" title="Add new song">➕</a>
 </div>
 {% endblock %}

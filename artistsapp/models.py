@@ -41,7 +41,7 @@ class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     genre = models.CharField(max_length=200, default="")
-
+    
     @property
     def age(self):
         return self.album.age

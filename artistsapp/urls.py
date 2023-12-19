@@ -6,6 +6,7 @@ urlpatterns = [
     path("songs/", views.SongsView.as_view(), name="songs"),
     path("songs/create/", views.CreateSongsView.as_view(), name="add_song"),
     path("songs/<pk>/update/", views.UpdateSongsView.as_view(), name="update_song"),
+    # path("songs/<slug:slug>/update/", views.UpdateSongsView.as_view(), name="update_song"),
     path("songs/<pk>/delete/", views.DeleteSongsView.as_view(), name="delete_song"),
     path("songs/search/<str:query>/", views.song_search_view, name="song_search"),
     # path("songs/<pk>/details/", views.SongDetailsView.as_view(), name="song_details"),

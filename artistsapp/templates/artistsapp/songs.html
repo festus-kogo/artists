@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %} My favourite songs {% endblock %}
 {% block content %}
-<div class="container pt-5">
     <h2>Songs</h2>
     <a href="{% url 'add_song' %}" style="display: inherit; text-decoration: none; text-align: center; border-radius: 15px; padding: 4px; color: inherit; background-color: lightgreen;" data-bs-toggle="tooltip" data-bs-placement="top" title="Add new song">➕</a>
     <table class="table table-striped table-hover" aria-describedby="Songs tables">
@@ -20,7 +19,7 @@
             {% for song in object_list|dictsort:"name" %}
             <tr>
                 <td>{{ forloop.counter }}.</td>
-                <td><a href="{% url 'update_song' song.id %}">{{ song }}</a></td>
+                <td><a href="{% url 'update_song' song.id %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Update this song">{{ song }}</a></td>
                 <td>{{ song.album }}</td>
                 <td>{{ song.album.release_date|date:"Y" }} </td>
                 <td>{{ song.genre }}</td>
@@ -30,5 +29,4 @@
         </tbody>
     </table>
     <a href="{% url 'add_song' %}" style="display: inherit; text-align: center; border-radius: 15px; text-decoration: none; color: inherit; padding: 4px; background-color: lightgreen;" data-bs-toggle="tooltip" data-bs-placement="top" title="Add new song">➕</a>
-</div>
 {% endblock %}
